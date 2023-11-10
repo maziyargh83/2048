@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+source .env
+
+if [[ "$DISABLE_PREPARE_COMMIT_MSG_HOOK" == "true" ]]; then
+  exit 0
+fi
+
+exec </dev/tty && git cz --hook || true
