@@ -12,6 +12,8 @@
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "framer-motion": "^10.16.4",
+    "jotai": "^2.5.1",
     "lucide-react": "^0.292.0",
     "next": "14.0.2",
     "next-themes": "^0.2.1",
