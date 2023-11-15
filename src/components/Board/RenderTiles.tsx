@@ -1,5 +1,5 @@
 "use client";
-import { Tile } from "@/components/Board/Tile";
+import TileAnimated from "@/components/Tile/TileAnimated";
 import { tilesAtom } from "@/provider";
 import { useAtomValue } from "jotai/react";
 import { Fragment } from "react";
@@ -9,7 +9,7 @@ export const RenderTiles = () => {
   return (
     <Fragment>
       {Array.from(tiles.entries()).map(([key, data], i) => {
-        return <Tile key={key} {...data} />;
+        return <TileAnimated key={key} {...data} />;
       })}
     </Fragment>
   );

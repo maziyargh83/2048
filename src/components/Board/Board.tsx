@@ -1,6 +1,7 @@
 import { Cell } from "@/components/Board/Cell";
 import { RenderTiles } from "@/components/Board/RenderTiles";
 import { config } from "@/config";
+import { generateColor } from "@/lib/color";
 import { v4 } from "uuid";
 
 export const Board = () => {

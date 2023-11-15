@@ -1,6 +1,6 @@
 import { cellHeight, cellWidth } from "@/config";
 import { useSpring, useTransform } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 const addGap = (i: number) => (i == 0 ? 0 : 10);
 export const useTileManager = (
   currentCell: number,
