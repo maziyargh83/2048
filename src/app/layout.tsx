@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { PropsWithChildren } from "react";
-
+import "./global.css";
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <>
@@ -11,7 +11,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             attribute="class"
             defaultTheme="system"
             enableSystem
-
+            enableColorScheme={false}
             // disableTransitionOnChange={false}
           >
             {children}

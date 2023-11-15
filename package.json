@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.4",
@@ -20,7 +21,8 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.0.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.0",
@@ -28,6 +30,7 @@
     "@types/node": "^20",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18",
+    "@types/uuid": "^9",
     "autoprefixer": "^10.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8",
