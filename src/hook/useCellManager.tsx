@@ -18,8 +18,22 @@ export const useCellManager = () => {
     setBoard(boardTiles);
     return boardData;
   };
+  const getCellTiles = (cellNumber: number) => {
+    return board[cellNumber];
+  };
   const getCellPosition = (cellNumber: number) => {
     return board[cellNumber].length;
   };
-  return { addNewItemToCell, removeItemInCell, getCellPosition };
+  const checkBoard = () => {
+    console.log("====================================");
+    console.log(board);
+    console.log("====================================");
+  };
+  return {
+    checkBoard,
+    addNewItemToCell,
+    removeItemInCell,
+    getCellPosition,
+    getCellTiles,
+  };
 };

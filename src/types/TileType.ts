@@ -3,6 +3,7 @@ export enum AnimationTile {
   LEFT,
   RIGHT,
   DOWN,
+  FALL,
 }
 export interface TileProps {
   id: string;

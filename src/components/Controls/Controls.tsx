@@ -9,7 +9,7 @@ import { v4 } from "uuid";
 
 export const Controls = () => {
   const [show, setShow] = useState(false);
-  const { createBlock, moveBlock, moveBlockBack, removeBlock } =
+  const { createBlock, moveBlock, moveBlockBack, removeBlock, checkMerge } =
     useMergeBlockGame();
   const item = Math.floor(Math.random() * 6);
 
@@ -21,11 +21,12 @@ export const Controls = () => {
           width: config.width,
         }}
       >
-        <Button onClick={() => createBlock(item)}>ADD</Button>
+        <Button onClick={() => createBlock(2)}>ADD</Button>
         <Button onClick={() => moveBlock()}>MOVE</Button>
         <Button onClick={() => moveBlockBack()}>MOVE back</Button>
         <Button onClick={() => removeBlock()}>REMOVE</Button>
         <Button onClick={() => setShow((prev) => !prev)}>Color</Button>
+        <Button onClick={() => checkMerge()}>checkMerge</Button>
       </div>
       <div
         className="flex flex-wrap"
