@@ -9,6 +9,6 @@ export interface TileProps {
   animation: AnimationTile;
   size: number;
   currentCell: number;
-  currentPosition: number;
+  currentPosition?: number;
   isGhost: boolean;
 }

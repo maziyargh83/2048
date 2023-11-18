@@ -1,10 +1,13 @@
 import { PropsWithChildren, memo } from "react";
 import { type MotionValue, motion } from "framer-motion";
 import { cellHeight, cellWidth } from "@/config";
+import clsx from "clsx";
 
 interface TileBlockProps {
   positionY?: MotionValue<string>;
   positionX?: MotionValue<string>;
+  absolute?: boolean;
+  className?: string;
   color: string;
 }
 const TileBlock = ({
@@ -12,6 +15,8 @@ const TileBlock = ({
   positionY,
   positionX,
   color,
+  absolute = true,
+  className,
 }: PropsWithChildren<TileBlockProps>) => {
   return (
     <motion.div
@@ -21,7 +26,13 @@ const TileBlock = ({
         width: cellWidth + "px",
         height: cellHeight + "px",
       }}
-      className="absolute rounded p-2"
+      className={clsx(
+        "rounded p-2",
+        {
+          ["absolute"]: absolute,
+        },
+        className
+      )}
     >
       <motion.div
         animate={{

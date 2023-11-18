@@ -3,25 +3,25 @@ import { useAtom } from "jotai";
 import { v4 } from "uuid";
 import { tilesAtom } from "@/provider";
 import { useCellManager } from "@/hook/useCellManager";
+import { usePreviewManager } from "@/hook/usePreviewManager";
+import { useEffect } from "react";
 export const useMergeBlockGame = () => {
   const [tiles, setTiles] = useAtom(tilesAtom);
   const { addNewItemToCell, removeItemInCell, getCellPosition } =
     useCellManager();
+  const { initialPreviews, getFirstPreview, removePreview } =
+    usePreviewManager();
+
   const createBlock = (cellNumber: number = 1) => {
-    const id = v4();
     const newMap = new Map(tiles);
 
-    const cell: TileProps = {
-      id,
-      animation: AnimationTile.DOWN,
-      currentCell: cellNumber,
-      isGhost: false,
-      size: 2,
-      currentPosition: getCellPosition(cellNumber),
-    };
-    newMap.set(id, cell);
+    const cell: TileProps = getFirstPreview();
+    cell.currentCell = cellNumber;
+    cell.currentPosition = getCellPosition(cellNumber);
+    newMap.set(cell.id, cell);
     setTiles(newMap);
-    addNewItemToCell(id, cellNumber);
+    addNewItemToCell(cell.id, cellNumber);
+    removePreview(cell.id);
   };
   const updateAllCurrentPositionToDown = (
     resultMap: typeof tiles,
@@ -71,5 +71,8 @@ export const useMergeBlockGame = () => {
   const getFirstBlock = () => {
     return Array.from(tiles.values())[0];
   };
+  useEffect(() => {
+    initialPreviews();
+  }, []);
   return { createBlock, moveBlock, moveBlockBack, removeBlock };
 };
