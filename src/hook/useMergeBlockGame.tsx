@@ -42,14 +42,16 @@ export const useMergeBlockGame = () => {
     const resultMap = updateAllCurrentPositionToDown(newMap, tilesResult);
     setTiles(resultMap);
   };
+
   const MoveDownAndRemove = (lastTile: TileProps, targetTile: TileProps) => {
     const newMap = new Map(tiles);
 
     const tilesResult = removeItemInCell(targetTile.id, targetTile.currentCell);
+
     newMap.set(lastTile.id, {
       ...lastTile,
       animation: AnimationTile.DOWN,
-    })!;
+    });
 
     const resultMap = updateAllCurrentPositionToDown(newMap, tilesResult);
     setTiles(resultMap);
@@ -96,6 +98,7 @@ export const useMergeBlockGame = () => {
     const tilesId = getCellTiles(lastTile.currentCell);
     const tilesCell = getValuesById(tilesId);
     const upAndDownResult = checkUpAndDown(tilesCell, lastTile);
+
     // checkBoard();
   };
   useEffect(() => {

@@ -10,7 +10,7 @@ export const useTileManager = (
 ) => {
   const x = useSpring(currentCell);
   const y = useSpring(100, {
-    duration: animation == AnimationTile.DOWN ? 4000 : 400,
+    duration: 400,
     bounce: 0,
   });
   const top = useTransform(y, (v) => (cellHeight + 10) * v + "px");
